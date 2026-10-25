@@ -3,17 +3,19 @@ import requests
 import pandas as pd
 import yfinance as yf
 
-# تم تعديل اسم المتغير ليطابق تماماً اسم الـ Secret في غيت هب (GLOBAL_SWING_BOT)
-TELEGRAM_TOKEN = os.getenv("GLOBAL_SWING_BOT")
-CHAT_ID = os.getenv("CHAT_ID")
+# جلب بيانات الاعتماد للتحقق
+token = os.getenv("GLOBAL_SWING_BOT")
+chat_id = os.getenv("CHAT_ID")
+
+print(f"DEBUG -> Token exists: {bool(token)}, Chat ID exists: {bool(chat_id)}")
 
 def send_telegram_message(text):
-    if not TELEGRAM_TOKEN or not CHAT_ID:
+    if not token or not chat_id:
         print("Telegram credentials missing!")
         return
-    url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
+    url = f"https://api.telegram.org/bot{token}/sendMessage"
     payload = {
-        "chat_id": CHAT_ID,
+        "chat_id": chat_id,
         "text": text,
         "parse_mode": "Markdown"
     }
