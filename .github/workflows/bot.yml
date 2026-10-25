@@ -24,7 +24,7 @@ jobs:
 
       - name: Run Market Scanner
         env:
-          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          GLOBAL_SWING_BOT: ${{ secrets.GLOBAL_SWING_BOT }}
           CHAT_ID: ${{ secrets.CHAT_ID }}
         run: |
           python main.py
