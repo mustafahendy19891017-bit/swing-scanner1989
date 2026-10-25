@@ -3,8 +3,8 @@ import requests
 import pandas as pd
 import yfinance as yf
 
-# جلب بيانات الاعتماد من البيئة (GitHub Secrets)
-TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
+# تم تعديل اسم المتغير ليطابق تماماً اسم الـ Secret في غيت هب (GLOBAL_SWING_BOT)
+TELEGRAM_TOKEN = os.getenv("GLOBAL_SWING_BOT")
 CHAT_ID = os.getenv("CHAT_ID")
 
 def send_telegram_message(text):
@@ -21,7 +21,6 @@ def send_telegram_message(text):
     print("Telegram response:", response.text)
 
 def scan_markets():
-    # قائمة الأصول العالمية المستهدفة
     tickers = [
         "AAPL", "MSFT", "NVDA", "TSLA", "AMZN", "GOOGL", "META", "AMD", "NFLX", "PLTR",
         "EURUSD=X", "GBPUSD=X", "AUDUSD=X", "USDJPY=X",
